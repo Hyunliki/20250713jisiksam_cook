@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>급식정보 알리미</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ 급식정보 알리미</h1>
+            <p>원하는 날짜의 급식 정보를 확인하세요</p>
+        </header>
+
+        <main>
+            <div class="date-selector">
+                <label for="meal-date">날짜 선택:</label>
+                <input type="date" id="meal-date" name="meal-date">
+                <button id="search-btn">급식 정보 조회</button>
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #666;">
+                    테스트: 2025-06-16 날짜로 조회해보세요 (더미 데이터)
+                </p>
+            </div>
+
+            <div class="meal-info">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>급식 정보를 불러오는 중...</p>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <p>급식 정보를 불러올 수 없습니다.</p>
+                    <p class="error-details"></p>
+                </div>
+
+                <div id="meal-result" class="meal-result hidden">
+                    <h2 id="meal-date-display"></h2>
+                    <div class="meal-content">
+                        <div class="meal-items">
+                            <h3>급식 메뉴</h3>
+                            <div id="meal-menu" class="menu-list"></div>
+                        </div>
+                        <div class="meal-nutrition">
+                            <h3>영양 정보</h3>
+                            <div id="nutrition-info" class="nutrition-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="no-data" class="no-data hidden">
+                    <p>해당 날짜의 급식 정보가 없습니다.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>데이터 출처: 나이스 교육정보 개방 포털</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">
+                문제가 발생하면 브라우저의 개발자 도구(F12)에서 콘솔을 확인해주세요.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
